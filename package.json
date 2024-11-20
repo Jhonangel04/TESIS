@@ -4,7 +4,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev-backend": "nodemon src/index.js"
+    "dev": "nodemon src/index.js"
   },
   "keywords": [],
   "author": "Jhonangel Briceño and Stephany Aranguren",
