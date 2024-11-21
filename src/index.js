@@ -1,17 +1,8 @@
+import { PORT } from "./config.js";
 import app from "./app.js";
-import sequelize from "./db.js";
+import { pool } from "./db.js";
 
-app.listen(3000, () => {
-  console.log("Server running on port 3000");
+app.listen(PORT, () => {
+  console.log(`Server running ${PORT}`);
 });
-
-try {
-  await sequelize.authenticate();
-  console.log("Connection has been established successfully.");
-} catch (error) {
-  console.error("Unable to connect to the database:", error);
-} finally{
-    sequelize.close()
-    console.log('The connection has been closed successfully')
-}
 

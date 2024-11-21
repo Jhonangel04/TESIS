@@ -1,13 +1,8 @@
-const login = (req, res) => {
-    res.json("hola login")
-}
+// conexión DB
 
-const register = (req, res) => {
-    res.json("hola register")
-}
+const register = async (req, res) => {
 
-export {
-    login,
-    register
-}
+  // const {nombre, apellido, nroDocumento, correo, numero_telefono, password, fecha_nacimiento, dirección} = req.body;
+};
 
+export {  register };
