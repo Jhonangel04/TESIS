@@ -3,16 +3,20 @@ import { pool } from "../db.js";
 const register = async (req, res) => {
   try {
     const client = await pool.connect();
+
+    //tomando ID de Role-> default (usuario)
     const getDefaultRoleID = await client.query('SELECT id FROM public."classification" WHERE classification_type = \'usuario\'');
-    // client.release();
-    // res.json(rows[0].id); Para obtener en la posición 0 del array y acceder al ID.
+    client.release();
+    const RoleID = getDefaultRoleID.rows[0].id; 
 
 
+    const {Nombre, apellido, identificación, correo_electrónico, contraseña, fecha_de_nacimiento} = req.body;
+
+    
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: "Database error" });
   }
 };
-
-// const {nombre, apellido, nroDocumento, correo, numero_telefono, password, fecha_nacimiento, dirección} = req.body;
+ 
 export { register };
